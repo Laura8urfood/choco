@@ -117,7 +117,7 @@ h1{
 .hero-action{
 	grid-area: haction;
 	color:#fff;
-	background-image: url(/second/images/dark_chocolate.jpg);
+	background-image: url(dark_chocolate.jpg);
     background-size:cover;
 	background-attachment: fixed;
 }
@@ -256,7 +256,7 @@ footer{
 	.hero{
         grid-template-columns: 1fr 2fr;
 		color:#fff;
-		background-image: url(/second/images/dark_chocolate.jpg);
+		background-image: url(dark_chocolate.jpg);
 		background-size:cover;
 		background-attachment: fixed;
         grid-template-areas:
