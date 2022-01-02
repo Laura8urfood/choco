@@ -1,0 +1,295 @@
+body{
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background-color: rgb(243, 243, 199);
+	color: rgb(26, 23, 19);
+	margin: 15px;
+	display: grid;
+	gap: 10px;
+	text-align: center;
+	grid-template-areas:
+        "header"
+        "hero"
+        "body"
+        "footer"
+} 
+header{
+    font-size: 16px;
+	grid-area: header;
+	background: rgb(238, 238, 162);
+    width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+	grid-template-areas:
+	"brand brand"
+	"nav tools";
+}
+.brand{
+	grid-area: brand;
+	place-self: center;
+	padding: 5px;
+}
+.nav{
+    grid-area: nav;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+header ul {
+	background: goldenrod;
+    list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+header ul li {
+	color: #fff;
+	background: goldenrod;
+	display: none;
+	float: left;
+	padding: 5px;
+	position: relative;
+	margin-right: 1px;
+	text-decoration: none;
+	transition-duration: 0.5s;
+}
+.mobile,
+header ul li ul li
+{
+    display: block;
+}
+header ul li a {
+	color: #fff;
+}
+header ul li:hover,
+header ul li:focus-within {
+	cursor: pointer;
+	transform: scale(1.3);
+	box-shadow: 4px 5px 17px 0px rgba(0,0,0,0.75);
+}
+header ul li ul {
+	display: none;
+	background: goldenrod;
+	visibility: hidden;
+	opacity: 0;
+	min-width: 5rem;
+	position: absolute;
+	transition: all 0.5s ease;
+	margin-top: 1rem;
+	left: 0;	
+}
+header ul li:hover>ul,
+header ul li:focus-within>ul,
+header ul li ul:hover,
+header ul li ul:focus {
+	visibility: visible;
+	opacity: 1;
+	display: block;
+}
+header ul li ul li {
+	clear: both;
+	width: 100%;
+}
+.tools{
+	grid-area: tools;
+    justify-self: center;
+}
+.tools input[type=text] {
+	width: 95px;
+	padding: 12px 20px;
+    margin: 20px 7px;
+	border: 1px solid goldenrod;
+	border-radius: 4px;
+}
+h1{
+    padding: 10px;
+	justify-self: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero{
+    grid-area: hero;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    grid-template-areas:
+    	"haction";
+}
+.hero-action{
+	grid-area: haction;
+	color:#fff;
+	background-image: url(/second/images/dark_chocolate.jpg);
+    background-size:cover;
+	background-attachment: fixed;
+}
+.hero-feature{
+	display: none;
+	grid-area: hfeature;
+}
+
+main{
+    padding: 10px;
+    grid-area: body;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    grid-template-areas: 
+        "feature"
+        "ad"
+        "listing";
+}
+.article-feature{
+	grid-area: feature;
+}
+.af2{
+	display: none;
+}
+.phone-ad{
+	grid-area: ad;
+	width: 100%;
+}
+img {
+	width: 100%;
+}
+.desktop-ad{
+    grid-area: dad;
+	vertical-align: top;
+	place-self: center stretch;
+	display: none;
+}
+.article-listing{
+	grid-area: listing;
+}
+.sidebar {
+	padding: 10px;
+    display: none;
+}
+footer{
+	grid-area: footer;
+	text-align: center;
+	margin-top: 20px;
+	padding: 10px;
+	justify-self: center;
+	align-items: center;
+	line-height: 20px;
+}
+/* Tablet layout */
+@media only screen and (min-width: 576px) {
+    body {
+		grid-template-rows: auto auto 1fr auto auto;
+        grid-template-areas:
+            "header"
+            "hero"
+            "body"
+            "sidebar"
+            "footer";
+    }
+	header{
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas:
+            "brand nav tools";
+    }
+	.brand{
+		grid-column: 1/1;
+	}
+	.nav{
+        grid-column: 2/5;
+        align-items: center;
+        align-self: center;
+	}
+	.tools{
+        grid-column: 5/6;
+        align-items: center;
+        align-self: center;
+	}
+	.hero{
+        grid-template-areas:
+            "hfeature"
+            "haction";
+    }
+	.hero-feature,
+	header ul li {
+		display: block;
+	}
+	main{
+        display: grid;
+		grid-template-columns: 1fr 230px;
+		grid-template-rows: auto 2fr;
+        grid-template-areas:
+            "feature ad"
+            "listing listing";
+    }
+    .phone-ad{
+        width: 230px;
+		place-self: center;
+    }
+	.article-feature{
+		grid-area: feature;
+	}
+	.sidebar{
+		display: block;
+		padding: 10px;
+		grid-area: sidebar;
+	}
+	header ul li.mobile {
+		display: none;
+	} 
+}
+/* Desktop layout */
+@media only screen and (min-width: 992px) {
+    body{
+        grid-template-columns: 1fr 350px;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header header"
+            "hero dad"
+            "body sidebar"
+            "footer footer"
+    }
+	.nav{
+		align-items: center;
+        align-self: center;
+	}
+	.tools{
+        align-items: center;
+        align-self: center;
+	}
+	.hero{
+        grid-template-columns: 1fr 2fr;
+		color:#fff;
+		background-image: url(/second/images/dark_chocolate.jpg);
+		background-size:cover;
+		background-attachment: fixed;
+        grid-template-areas:
+            "hfeature haction"
+    }
+	.hero-feature{
+		place-self: center;
+	}
+	.hero-action{
+		align-self:center;
+	}
+	main{
+		display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        grid-template-rows: 1fr;
+		grid-gap: 20px;
+        grid-template-areas:
+            "feature listing"
+    }
+	.article-feature{
+		place-self: start;
+	}
+	.af2{
+		display: block;
+	}
+    .phone-ad{
+        display: none;
+    }
+    .desktop-ad{
+        display: block;
+		width: 100%;
+    }
+	.sidebar{
+		place-self: start;
+	}
+}
